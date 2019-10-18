@@ -1,10 +1,15 @@
 .header {
-  background-color: rgb(248, 118, 118);
+  background-color: rgb(50, 103, 248);
   grid-area: h;
   padding: 10px;
 
 }
 
-.logo {
-  color: aliceblue;
+.header .logo {
+  color: azure;
+}
+
+.logo:hover {
+  transition: 0.5s;
+  color: rgb(0, 211, 183);
 }

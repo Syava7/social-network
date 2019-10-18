@@ -1,4 +1,5 @@
 .content {
-  background-color: rgb(252, 197, 197);
+  background-color: rgb(221, 242, 255);
   grid-area: c;
+  padding: 10px;
 }
