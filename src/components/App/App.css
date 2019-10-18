@@ -1,0 +1,10 @@
+.app-wrapper {
+  font-family: 'Roboto';
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-template-areas:
+  'h h'
+  'n c';
+}
+
