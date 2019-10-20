@@ -1,0 +1,14 @@
+.nav {
+  background-color: rgb(98, 138, 248);
+  grid-area: n;
+}
+
+.icon {
+  padding-right: 5px;
+}
+
+.item:hover {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  color: rgba(225, 235, 243);
+  transition: 0.5s;
+}

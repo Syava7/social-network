@@ -1,12 +1,12 @@
 import React from 'react'
-import './Header.css'
+import classes from './Header.module.css'
 import Link from '@material-ui/core/Link';
 
 const Header = () => {
   return (
-    <div className='header'>
+    <div className={classes.header}>
       <div>
-        <Link className='logo' href='#'>
+        <Link className={classes.logo} href='#'>
           LOGO
         </Link>
       </div>

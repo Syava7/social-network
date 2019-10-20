@@ -1,0 +1,9 @@
+.icon {
+  color: rgb(35, 35, 180);
+  padding-right: 5px;
+}
+.wrap {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
