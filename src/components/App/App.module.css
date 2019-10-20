@@ -8,3 +8,9 @@
   'n c';
 }
 
+.appWrapperContent {
+  background-color: rgb(221, 242, 255);
+  grid-area: c;
+  padding: 15px;
+}
+
