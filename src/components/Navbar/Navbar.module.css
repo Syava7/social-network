@@ -12,3 +12,8 @@
   color: rgba(225, 235, 243);
   transition: 0.5s;
 }
+
+.link {
+  text-decoration: none;
+  color: black;
+}
