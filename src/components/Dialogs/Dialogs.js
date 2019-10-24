@@ -2,21 +2,45 @@ import React from 'react'
 import classes from './Dialogs.module.css'
 import DialogItem from './DialogItem/DialogsItem'
 import MessageItem from './MessageItem/MessageItem'
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
 
 const Dialogs = () => {
+
+  const sendMessageClick = () => {
+
+  }
+
+  const newMessageChange = (e) => {
+    let text = e.target.value
+  }
+
   return (
-    <div className={classes.dialogsWrap} >
-      <div>
-        <DialogItem name='Vasya' id='1' />
-        <DialogItem name='Kolya' id='2' />
-        <DialogItem name='Petya' id='3' />
-        <DialogItem name='Igor' id='4' />
-        <DialogItem name='Vadim' id='5' />
+    <div>
+      <div className={classes.dialogsWrap} >
+        <div>
+          <DialogItem name='Vasya' id='1' />
+          <DialogItem name='Kolya' id='2' />
+          <DialogItem name='Petya' id='3' />
+          <DialogItem name='Igor' id='4' />
+          <DialogItem name='Vadim' id='5' />
+        </div>
+        <div>
+          <MessageItem message='Hello' />
+          <MessageItem message='How are you' />
+          <MessageItem message='Hello world' />
+        </div>
       </div>
       <div>
-        <MessageItem message='Hello' />
-        <MessageItem message='How are you' />
-        <MessageItem message='Hello world' />
+        <TextField placeholder='Enter your message'
+                    onChange={ newMessageChange } />
+      </div>
+      <div className={classes.button}>
+        <Button variant="contained" 
+                color="primary"
+                onClick={ sendMessageClick }>
+                Add message
+        </Button>
       </div>
     </div>
   )

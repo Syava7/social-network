@@ -10,16 +10,14 @@ import Dialogs from '../Dialogs/Dialogs'
 
 
 
-
-
 const App = () => {
   return (
     <Container className={classes.appWrapper}>
       <Header />
       <Navbar />
       <div className={classes.appWrapperContent}>
-        <Route path='/dialogs' component={ Dialogs } />
-        <Route path='/profile' component={ Profile }/>
+        <Route path='/dialogs' render={ Dialogs } />
+        <Route path='/profile' render={ Profile }/>
       </div>
     </Container>
   );

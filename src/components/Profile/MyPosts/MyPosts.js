@@ -6,15 +6,15 @@ import TextField from '@material-ui/core/TextField'
 
 const MyPosts = () => {
 
-  const addPost = (changeInput) => {
+  const addPost = () => {
     
     
     
   }
 
-  const changeInput = (e) => {
-    const text = e.target.value
-    console.log(text)
+  const changePost = (e) => {
+    let text = e.target.value
+    
   }
  
   return (
@@ -22,7 +22,7 @@ const MyPosts = () => {
       <h3>My posts</h3>
       <div>
         <div>
-          <TextField label="Name" onChange={ changeInput } value='syava'/>
+          <TextField onChange={ changePost } />
         </div>
         <div className={classes.button}>
           <Button
