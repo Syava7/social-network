@@ -5,35 +5,39 @@ import MessageItem from './MessageItem/MessageItem'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
-const Dialogs = () => {
 
+const Dialogs = (props) => {
+
+  let state = props.dialogsPage
+
+  let dialogItem = state.dialogs.map(dialog => <DialogItem name={dialog.name} id={dialog.id} />)
+  let messageItem = state.messages.map(message => <MessageItem message={message.message} />)
+  let newMessageText = state.newMessageText
+  
+  
   const sendMessageClick = () => {
-
+    props.sendMessage()
   }
 
   const newMessageChange = (e) => {
     let text = e.target.value
+    props.updateNewMessageText(text)
   }
 
   return (
     <div>
       <div className={classes.dialogsWrap} >
         <div>
-          <DialogItem name='Vasya' id='1' />
-          <DialogItem name='Kolya' id='2' />
-          <DialogItem name='Petya' id='3' />
-          <DialogItem name='Igor' id='4' />
-          <DialogItem name='Vadim' id='5' />
+          { dialogItem }
         </div>
         <div>
-          <MessageItem message='Hello' />
-          <MessageItem message='How are you' />
-          <MessageItem message='Hello world' />
+          { messageItem }
         </div>
       </div>
       <div>
         <TextField placeholder='Enter your message'
-                    onChange={ newMessageChange } />
+                    onChange={ newMessageChange }
+                    value={newMessageText} />
       </div>
       <div className={classes.button}>
         <Button variant="contained" 

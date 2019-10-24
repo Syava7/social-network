@@ -4,25 +4,27 @@ import Post from './Post/Post'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 
-const MyPosts = () => {
+const MyPosts = (props) => {
+
+  let postsElements = props.posts.map( post => <Post message={post.message} 
+                                            likesCount={post.likesCount}/>) 
 
   const addPost = () => {
-    
-    
-    
+     props.addPost()
   }
 
   const changePost = (e) => {
     let text = e.target.value
-    
+    props.updateNewPostText(text)
   }
- 
+
   return (
     <div>
       <h3>My posts</h3>
       <div>
         <div>
-          <TextField onChange={ changePost } />
+          <TextField onChange={ changePost }
+                     value={props.newPostText} />
         </div>
         <div className={classes.button}>
           <Button
@@ -34,12 +36,7 @@ const MyPosts = () => {
         </div>
       </div>
       <div>
-        <Post message='Hello guys' likes='15'/>
-        <Post message='Nice to meet you' likes='20'/>
-        {/* <Post />
-        <Post />
-        <Post />
-        <Post /> */}
+        { postsElements }
       </div>
     </div>
   )
