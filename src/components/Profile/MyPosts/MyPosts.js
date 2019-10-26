@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField'
 
 const MyPosts = (props) => {
 
-  let postsElements = props.posts.map( post => <Post message={post.message} 
+  let postsElements = props.posts.map( post => <Post key={post.id} id={post.id} message={post.message} 
                                             likesCount={post.likesCount}/>) 
 
   const addPost = () => {
@@ -24,7 +24,8 @@ const MyPosts = (props) => {
       <div>
         <div>
           <TextField onChange={ changePost }
-                     value={props.newPostText} />
+                     value={props.newPostText}
+                     placeholder='Enter your post' />
         </div>
         <div className={classes.button}>
           <Button

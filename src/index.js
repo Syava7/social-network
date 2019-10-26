@@ -9,8 +9,8 @@ import { Provider } from 'react-redux'
 
 ReactDOM.render((
   <BrowserRouter>
-    <Provider>
-      <App store={store}/>  
+    <Provider store={store}>
+      <App />  
     </Provider>
   </BrowserRouter>
  ), document.getElementById('root'));
