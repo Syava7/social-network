@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from '@material-ui/core/Button';
 import classes from './Users.module.css'
+import userPhoto from './../../assets/images/User.jpg'
 
 const Users = (props) => {
   return (
@@ -9,7 +10,7 @@ const Users = (props) => {
         props.users.map( user => <div key={user.id}>
             <div>
               <div>
-                <img src={user.photoUrl} className={classes.photo}/>
+                <img src={user.photos.small =! null ? user.photos.small : userPhoto} className={classes.photo}/>
               </div>
               <div>
                 {user.followed 
@@ -19,12 +20,12 @@ const Users = (props) => {
             </div>
             <div>
               <div>
-                <div>{user.fullName}</div>
+                <div>{user.name}</div>
                 <div>{user.status}</div>
               </div>
               <div>
-                <div>{user.location.country}</div>
-                <div>{user.location.city}</div>
+                <div>{'user.location.country'}</div>
+                <div>{'user.location.city'}</div>
               </div>
             </div>
           </div>
