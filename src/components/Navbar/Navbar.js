@@ -7,6 +7,7 @@ import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined'
 import AnnouncementOutlinedIcon from '@material-ui/icons/AnnouncementOutlined'
 import LibraryMusicOutlinedIcon from '@material-ui/icons/LibraryMusicOutlined'
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined'
+import PeopleAltOutlinedIcon from '@material-ui/icons/PeopleAltOutlined';
 import { NavLink } from 'react-router-dom'
 
 const Navbar = () => {
@@ -23,6 +24,12 @@ const Navbar = () => {
             <MenuItem className={classes.item}> 
               <EmailOutlinedIcon className={classes.icon} />  
               Messages
+            </MenuItem>
+          </NavLink>
+          <NavLink className={classes.link} to='/users'>
+            <MenuItem className={classes.item}> 
+              <PeopleAltOutlinedIcon className={classes.icon} />  
+              Users
             </MenuItem>
           </NavLink>
             <MenuItem className={classes.item}>

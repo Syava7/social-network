@@ -7,7 +7,9 @@ const initialState = {
     {id: 1, followed: true, fullName: 'Vadik', status: 'I am a boss', location: {city: 'Kiev', country: 'Ukraine'}, photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7bORQmxQAhKwigwXDmGCowBp6X18cdG7bTWpmwLL3z0Rex6Vs&s' },
     {id: 2, followed: false, fullName: 'Kolyan', status: 'I am a boss too', location: {city: 'Uman', country: 'Ukraine'}, photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7bORQmxQAhKwigwXDmGCowBp6X18cdG7bTWpmwLL3z0Rex6Vs&s' },
     {id: 3, followed: true, fullName: 'Vadik', status: 'I am a monkey', location: {city: 'Lviv', country: 'Ukraine'}, photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7bORQmxQAhKwigwXDmGCowBp6X18cdG7bTWpmwLL3z0Rex6Vs&s' }
-  ]
+  ],
+  pageSize: 5,
+  totalUsersCount: 0
 }
 
 const usersReducer = (state = initialState, action) => {
