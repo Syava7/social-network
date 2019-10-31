@@ -3,10 +3,10 @@ import classes from './App.module.css';
 import { Container } from '@material-ui/core';
 import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
-import Profile from '../Profile/Profile';
 import { Route } from 'react-router-dom'
 import DialogsContainer from '../Dialogs/DialogsContainer';
 import UsersContainer from '../Users/UsersContainer';
+import ProfileContainer from '../Profile/ProfileContainer';
 
 
 
@@ -18,8 +18,8 @@ const App = (props) => {
       <Header />
       <Navbar />
       <div className={classes.appWrapperContent}>
-        <Route path='/dialogs' render={ () => <DialogsContainer store={props.store}/> } />
-        <Route path='/profile' render={ () => <Profile store={props.store} /> }/>
+        <Route path='/dialogs' render={ () => <DialogsContainer /> } />
+        <Route path='/profile' render={ () => <ProfileContainer/> }/>
         <Route path='/users' render={ () => <UsersContainer /> } />
       </div>
     </Container>

@@ -2,7 +2,9 @@ import React from 'react'
 import Button from '@material-ui/core/Button'
 import classes from './Users.module.css'
 import userPhoto from '../../assets/images/User.jpg'
-import ButtonGroup from '@material-ui/core/ButtonGroup';
+import ButtonGroup from '@material-ui/core/ButtonGroup'
+import { NavLink } from 'react-router-dom'
+
 
 const Users = (props) => {
 
@@ -16,24 +18,26 @@ const Users = (props) => {
   return (
     <div>
       <div>
-      <ButtonGroup>
-        {
-          pages.map(page => {
-            return <Button className={props.currentPage === page && classes.selectedPage}
-                            onClick={ (e) => {
-                            props.onPageChanged(page)
-                            }}>{page}
-                    </Button>
-            
-          })
-        }
+        <ButtonGroup>
+          {
+            pages.map(page => {
+              return <Button className={props.currentPage === page && classes.selectedPage}
+                              onClick={ (e) => {
+                              props.onPageChanged(page)
+                              }}>{page}
+                      </Button>
+              
+            })
+          }
         </ButtonGroup>
       </div>
       {
         props.users.map( user => <div key={user.id}>
             <div>
               <div>
-                <img src={user.photos.small != null ? user.photos.small : userPhoto} className={classes.photo}/>
+                <NavLink to={'/profile/' + user.id}>
+                  <img src={user.photos.small != null ? user.photos.small : userPhoto} className={classes.photo}/>
+                </NavLink>
               </div>
               <div>
                 {user.followed 
