@@ -1,6 +1,7 @@
 .header {
+  display: flex;
+  justify-content: space-between;
   background-color: rgb(50, 103, 248);
-  grid-area: h;
   padding: 15px;
 
 }
@@ -15,4 +16,19 @@
   text-decoration: none;
   transition: 0.5s;
   color: rgb(0, 211, 183);
+}
+
+.login {
+  display: flex;
+  align-items: center;
+}
+
+.logoWrap {
+  display: flex;
+  align-items: center;
+}
+
+.loginLink {
+  text-decoration: none;
+  color: black;
 }

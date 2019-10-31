@@ -6,6 +6,7 @@
   grid-template-areas:
   'h h'
   'n c';
+  
 }
 
 .appWrapperContent {
@@ -13,4 +14,10 @@
   grid-area: c;
   padding: 15px;
 }
+
+.header {
+  grid-area: h;
+}
+
+
 
