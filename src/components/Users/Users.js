@@ -41,8 +41,8 @@ const Users = (props) => {
               </div>
               <div>
                 {user.followed 
-                ? <Button onClick={()=> {props.unfollow(user.id)}} color='secondary' variant='contained'>unfollow</Button> 
-                : <Button onClick={()=> {props.follow(user.id)}} color='primary' variant='contained'>follow</Button>}
+                ? <Button disabled={props.followingInProgress.some(id => id === user.id)} onClick={()=> {props.unfollow(user.id)}} color='secondary' variant='contained'>unfollow</Button> 
+                : <Button disabled={props.followingInProgress.some(id => id === user.id)} onClick={()=> {props.follow(user.id)}} color='primary' variant='contained'>follow</Button>}
               </div>
             </div>
             <div>

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react'
-import { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toogleIsFetching } from '../../Redux/usersReducer'
+import { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toogleIsFetching, toogleIsFollowingProgress, getUsersThunk } from '../../Redux/usersReducer'
 import Users from './Users'
 import Preloader from '../common/Preloader/Preloader';
 import { usersAPI } from '../../api/api'
@@ -11,13 +11,7 @@ import { usersAPI } from '../../api/api'
 class UsersContainer extends Component {
 
   componentDidMount() {
-    this.props.toogleIsFetching(true)
-    usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
-      .then(data => {
-        this.props.toogleIsFetching(false)
-        this.props.setUsers(data.items)
-        this.props.setTotalUsersCount(data.totalCount)
-      })
+    this.props.getUsersThunk()
   }
 
   onPageChanged = (pageNumber) => {
@@ -41,7 +35,9 @@ class UsersContainer extends Component {
              onPageChanged={this.onPageChanged}
              users={this.props.users}
              follow={this.props.follow}
-             unfollow={this.props.unfollow}/>
+             unfollow={this.props.unfollow}
+             toogleIsFollowingProgress={this.props.toogleIsFollowingProgress}
+             followingInProgress={this.props.followingInProgress}/>
       </>
     )
   }
@@ -53,14 +49,15 @@ const mapStateToProps = (state) => {
     pageSize: state.usersPage.pageSize,
     totalUsersCount: state.usersPage.totalUsersCount,
     currentPage: state.usersPage.currentPage,
-    isFetching: state.usersPage.isFetching
+    isFetching: state.usersPage.isFetching,
+    followingInProgress: state.usersPage.followingInProgress
   }
 }
 
 
 
 export default connect(mapStateToProps, { follow, unfollow, setUsers, setCurrentPage, 
-                                          setTotalUsersCount, toogleIsFetching })(UsersContainer)
+                                          setTotalUsersCount, toogleIsFetching, toogleIsFollowingProgress, getUsersThunk })(UsersContainer)
 
 
 
