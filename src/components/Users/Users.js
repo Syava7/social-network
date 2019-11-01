@@ -4,6 +4,7 @@ import classes from './Users.module.css'
 import userPhoto from '../../assets/images/User.jpg'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
 import { NavLink } from 'react-router-dom'
+import {usersAPI} from '../../api/api'
 
 
 const Users = (props) => {
@@ -41,8 +42,15 @@ const Users = (props) => {
               </div>
               <div>
                 {user.followed 
-                ? <Button disabled={props.followingInProgress.some(id => id === user.id)} onClick={()=> {props.unfollow(user.id)}} color='secondary' variant='contained'>unfollow</Button> 
-                : <Button disabled={props.followingInProgress.some(id => id === user.id)} onClick={()=> {props.follow(user.id)}} color='primary' variant='contained'>follow</Button>}
+                ? <Button disabled={props.followingInProgress.some(id => id === user.id)} 
+                    onClick={()=> { props.unfollow(user.id) }} 
+                    color='secondary' 
+                    variant='contained'>unfollow</Button>
+    
+                : <Button disabled={props.followingInProgress.some(id => id === user.id)} 
+                    onClick={()=> { props.follow(user.id) }} 
+                    color='primary' 
+                    variant='contained'>follow</Button>}
               </div>
             </div>
             <div>
