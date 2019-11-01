@@ -4,6 +4,7 @@ import DialogItem from './DialogItem/DialogsItem'
 import MessageItem from './MessageItem/MessageItem'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
+import {Redirect} from 'react-router-dom'
 
 
 const Dialogs = (props) => {
@@ -22,6 +23,10 @@ const Dialogs = (props) => {
   const newMessageChange = (e) => {
     let text = e.target.value
     props.updateNewMessageText(text)
+  }
+
+  if(!props.isAuth) {
+    return <Redirect to={'/login'} />
   }
 
   return (
