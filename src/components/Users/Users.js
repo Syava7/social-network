@@ -4,7 +4,7 @@ import classes from './Users.module.css'
 import userPhoto from '../../assets/images/User.jpg'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
 import { NavLink } from 'react-router-dom'
-import {usersAPI} from '../../api/api'
+
 
 
 const Users = (props) => {
