@@ -25,10 +25,6 @@ const Dialogs = (props) => {
     props.updateNewMessageText(text)
   }
 
-  if(!props.isAuth) {
-    return <Redirect to={'/login'} />
-  }
-
   return (
     <div>
       <div className={classes.dialogsWrap} >

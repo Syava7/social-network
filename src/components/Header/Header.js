@@ -12,9 +12,9 @@ const Header = (props) => {
           LOGO
         </Link>
       </div>
-      <div className={classes.login}>
+      <div>
         { props.isAuth ? props.login :
-          <div>
+          <div className={classes.login}>
             <ExitToAppIcon />
             <NavLink to={'/login'} className={classes.loginLink}>
               Login
