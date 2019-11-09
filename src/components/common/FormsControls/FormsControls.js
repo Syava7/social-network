@@ -1,18 +1,35 @@
 import React from 'react'
-import TextField from '@material-ui/core/TextField'
 import classes from './FormsControls.module.css'
 
-const Textarea = ({input, meta, ...props}) => {
+export const Textarea = ({input, meta, ...props}) => {
+
+  const hasError = meta.error && meta.touched
+
   return (
-    <div className={classes.formsControl + " " + classes.error}>
+    <div className={classes.formsControl + " " + (hasError ? classes.error : '')}>
       <div>
-        <TextField {...input} {...props}/>
+        <textarea {...input} {...props}/>
       </div>
       <div>
-        <span>some error!</span>
+        { hasError && <span>{meta.error}</span> }
       </div>
     </div>
   )
 }
 
-export default Textarea
+export const Input = ({input, meta, ...props}) => {
+
+  const hasError = meta.error && meta.touched
+
+  return (
+    <div className={classes.formsControl + " " + (hasError ? classes.error : '')}>
+      <div>
+        <input {...input} {...props}/>
+      </div>
+      <div>
+        { hasError && <span>{meta.error}</span> }
+      </div>
+    </div>
+  )
+}
+
