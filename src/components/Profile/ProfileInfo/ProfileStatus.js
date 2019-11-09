@@ -27,13 +27,13 @@ class ProfileStatus extends Component {
     })
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps !== prevState) {
-      this.setState({
-        status: this.props.status
-      })
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevProps !== prevState) {
+  //     this.setState({
+  //       status: this.props.status
+  //     })
+  //   }
+  // }
 
   render() {
     return (
