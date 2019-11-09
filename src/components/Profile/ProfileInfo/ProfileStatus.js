@@ -27,6 +27,14 @@ class ProfileStatus extends Component {
     })
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps !== prevState) {
+      this.setState({
+        status: this.props.status
+      })
+    }
+  }
+
   render() {
     return (
       <div>
@@ -43,5 +51,6 @@ class ProfileStatus extends Component {
     );
   }
 }
+
 
 export default ProfileStatus;
