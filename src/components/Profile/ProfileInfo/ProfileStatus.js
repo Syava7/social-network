@@ -1,55 +1,38 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import Input from '@material-ui/core/Input'
 
-class ProfileStatus extends Component {
+const ProfileStatus = (props) => {
 
-  state = {
-    editMode: false,
-    status: this.props.status
+  const [editMode, setEditMode] = useState(false)
+  const [status, setStatus] = useState(props.status)
+
+  const activateEditMode = () => {
+    setEditMode(true)
   }
 
-  activateEditMode = () => {
-    this.setState({
-      editMode: true
-    })
+  const deactivateEditMode = () => {
+    setEditMode(false)
+    props.updateStatus(status)
   }
 
-  deactivateEditMode = () => {
-    this.setState({
-      editMode: false
-    })
-    this.props.updateStatus(this.state.status)
+   const onStatusChange = (e) => {
+    setStatus(e.currentTarget.value)
   }
 
-  onStatusChange = (e) => {
-    this.setState({
-      status: e.target.value
-    })
-  }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevProps !== prevState) {
-  //     this.setState({
-  //       status: this.props.status
-  //     })
-  //   }
-  // }
-
-  render() {
-    return (
+  return (
       <div>
-        {!this.state.editMode 
+        {!editMode 
           ? <div>
-              <span onDoubleClick={ this.activateEditMode }>{this.props.status || 'No status'}</span>
+              <span onDoubleClick={ activateEditMode }>{ props.status || 'No status'}</span>
             </div> 
           : <div>
-              <Input onChange={this.onStatusChange} 
-                     autoFocus={true} onBlur={ this.deactivateEditMode } 
-                     value={this.state.status}/>
-            </div>}
-      </div>
-    );
-  }
+            <Input  onChange={ onStatusChange } 
+                    autoFocus={ true } onBlur={ deactivateEditMode } 
+                    value={ status }/>
+          </div>}
+    </div>
+  );
 }
 
 
