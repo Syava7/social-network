@@ -79,38 +79,32 @@ export const toogleIsFetching = (isFetching) => ({type: TOOGLE_IS_FETCHING, isFe
 export const toogleIsFollowingProgress = (isFetching, userId) => ({type: TOOGLE_IS_FOLLWING_PROGRESS, isFetching, userId})
 
 
-export const getUsers = (currentPage, pageSize) => (dispatch) => {
+export const getUsers = (currentPage, pageSize) => async (dispatch) => {
   dispatch(toogleIsFetching(true))
   dispatch(setCurrentPage(currentPage))
 
-    usersAPI.getUsers(currentPage, pageSize)
-      .then(data => {
-        dispatch(toogleIsFetching(false))
-        dispatch(setUsers(data.items))
-        dispatch(setTotalUsersCount(data.totalCount))
-      })
+  const data = await usersAPI.getUsers(currentPage, pageSize)
+    dispatch(toogleIsFetching(false))
+    dispatch(setUsers(data.items))
+    dispatch(setTotalUsersCount(data.totalCount))   
 }
 
-export const follow = (userId) => (dispatch) => {
+export const follow = (userId) => async (dispatch) => {
   dispatch(toogleIsFollowingProgress(true, userId))
-  usersAPI.follow(userId)
-    .then(response => {
-      if (response.data.resultCode === 0) {
-        dispatch(followSuccess(userId))
-      }
-      dispatch(toogleIsFollowingProgress(false, userId))
-    })
+  const response = await usersAPI.follow(userId)
+    if (response.data.resultCode === 0) {
+      dispatch(followSuccess(userId))
+    }
+    dispatch(toogleIsFollowingProgress(false, userId))   
 }
 
-export const unfollow = (userId) => (dispatch) => {
+export const unfollow = (userId) => async (dispatch) => {
   dispatch(toogleIsFollowingProgress(true, userId))
-  usersAPI.unfollow(userId)
-    .then(response => {
-      if (response.data.resultCode === 0) {
-        dispatch(unfollowSuccess(userId))
-      }
-      dispatch(toogleIsFollowingProgress(false, userId))
-    })
+  const response = await usersAPI.unfollow(userId)   
+    if (response.data.resultCode === 0) {
+      dispatch(unfollowSuccess(userId))
+    }
+    dispatch(toogleIsFollowingProgress(false, userId))
 }
 
 export default usersReducer

@@ -4,10 +4,10 @@ import { Input } from '../common/FormsControls/FormsControls'
 import { required } from '../../utils/validators/validators'
 import classes from '../common/FormsControls/FormsControls.module.css'
 
-const LoginForm = (props) => {
+const LoginForm = ({handleSubmit, error }) => {
 
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <div>
         <Field component={Input} 
                name={'email'} 
@@ -26,8 +26,8 @@ const LoginForm = (props) => {
                name={'rememberMe'} 
                type={'checkbox'} /> Remember me
       </div>
-      { props.error && <div className={classes.formSummaryError}>
-          {props.error}
+      { error && <div className={classes.formSummaryError}>
+          { error }
       </div>
       }
       <div>
