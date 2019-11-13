@@ -12,16 +12,18 @@ const Users = ({currentPage, onPageChanged, totalUsersCount,
                  onPageChanged={onPageChanged}
                  totalUsersCount={totalUsersCount}
                  pageSize={pageSize}/>
-      {
-        users.map( user => <User user={user} 
-                                       key={user.id}
-                                       followingInProgress={followingInProgress}
-                                       unfollow={unfollow}
-                                       follow={follow}/> 
-           
+      <div>
+        {
+          users.map( user => <User user={user} 
+                                        key={user.id}
+                                        followingInProgress={followingInProgress}
+                                        unfollow={unfollow}
+                                        follow={follow}/> 
             
-        )
-      }
+              
+          )
+        }
+      </div>
     </div>
   )
 }
