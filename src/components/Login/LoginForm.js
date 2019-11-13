@@ -4,7 +4,7 @@ import { Input } from '../common/FormsControls/FormsControls'
 import { required } from '../../utils/validators/validators'
 import classes from '../common/FormsControls/FormsControls.module.css'
 
-const LoginForm = ({handleSubmit, error }) => {
+const LoginForm = ({handleSubmit, error}) => {
 
   return (
     <form onSubmit={handleSubmit}>
