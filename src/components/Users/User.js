@@ -1,6 +1,8 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
 import { NavLink } from 'react-router-dom'
+import userPhoto from '../../assets/images/User.jpg'
+import classes from './Users.module.css'
 
 const User = ({user, followingInProgress, unfollow, follow }) => {
   return (
