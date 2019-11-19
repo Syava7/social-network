@@ -20,12 +20,15 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
   return (
     <div>
       <img src={profile.photos.large || User} />
-      {isOwner && <input type={'file'} onChange={onMainPhotoselected} /> }
+      <div>
+        {isOwner && <input type={'file'} onChange={onMainPhotoselected} /> }
+      </div>
+      
+      <ProfileStatus status={status}  
+                     updateStatus={updateStatus}/>
    
       <ProfileData  profile={profile} isOwner={isOwner}/>
 
-      <ProfileStatus status={status}  
-                     updateStatus={updateStatus}/>
     </div>
   )
 }
