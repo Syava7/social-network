@@ -4,7 +4,7 @@ import { Input } from '../common/FormsControls/FormsControls'
 import { required } from '../../utils/validators/validators'
 import classes from '../common/FormsControls/FormsControls.module.css'
 
-const LoginForm = ({handleSubmit, error}) => {
+const LoginForm = ({handleSubmit, error, captchaUrl}) => {
 
   return (
     <form onSubmit={handleSubmit}>
@@ -26,6 +26,18 @@ const LoginForm = ({handleSubmit, error}) => {
                name={'rememberMe'} 
                type={'checkbox'} /> Remember me
       </div>
+
+      <div>
+        { captchaUrl && <img src={captchaUrl} />}
+      </div>
+      <div>
+         {captchaUrl && <div>
+        <Field component={Input} 
+               name={'captcha'}
+               validate={[required]} /> 
+      </div>}
+      </div>
+
       { error && <div className={classes.formSummaryError}>
           { error }
       </div>
