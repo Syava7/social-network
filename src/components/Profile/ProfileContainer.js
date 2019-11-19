@@ -4,14 +4,14 @@ import Profile from './Profile'
 import { getUserProfile, getStatus, updateStatus } from '../../Redux/profileReducer'
 import { withRouter } from 'react-router-dom'
 import { compose } from 'redux'
-import withAuthRedirect from '../../hoc/withAuthRedirect'
+
 
 
 
 
 class ProfileContainer extends Component {
 
-  componentDidMount() {
+  refleshProfile () {
     let userId = this.props.match.params.userId
     if (!userId) {
       userId = this.props.autorizedUserId
@@ -21,6 +21,14 @@ class ProfileContainer extends Component {
     }
     this.props.getUserProfile(userId)
     this.props.getStatus(userId)
+  }
+
+  componentDidMount() {
+    this.refleshProfile()
+  }
+
+  componentDidUpdate(prevProps, prevState) { 
+    this.refleshProfile()
   }
 
   render() {

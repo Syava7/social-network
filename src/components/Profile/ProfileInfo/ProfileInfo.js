@@ -3,15 +3,36 @@ import Preloader from '../../common/Preloader/Preloader'
 import ProfileStatus from './ProfileStatus'
 import User from '../../../assets/images/User.jpg'
 
-const ProfileInfo = ({profile, status, updateStatus}) => {
+
+const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
+
   if(!profile) {
     return <Preloader />
   }
+
+  const onMainPhotoselected = (e) => {
+    if (e.target.files.length) {
+      savePhoto(e.target.files[0])
+    }
+  }
+
+
   return (
     <div>
       <img src={profile.photos.large || User} />
+      {isOwner && <input type={'file'} onChange={onMainPhotoselected} /> }
+   
+      <ProfileData  profile={profile} isOwner={isOwner}/>
 
-      <div>
+      <ProfileStatus status={status}  
+                     updateStatus={updateStatus}/>
+    </div>
+  )
+}
+
+const ProfileData = ({profile}) => {
+  return (
+    <div>
         <div>
           FullName: {profile.fullName}  
         </div>
@@ -31,13 +52,10 @@ const ProfileInfo = ({profile, status, updateStatus}) => {
             return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
           })}  
         </div>
-      </div>
-
-      <ProfileStatus status={status}  
-                     updateStatus={updateStatus}/>
     </div>
   )
 }
+
 
 const Contact = ({contactTitle, contactValue}) => {
   return (
