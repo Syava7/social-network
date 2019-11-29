@@ -12,6 +12,9 @@ import { connect } from 'react-redux'
 import { initializeApp } from '../../Redux/appReducer'
 import { compose } from 'redux'
 import Preloader from '../common/Preloader/Preloader';
+import News from '../News/News';
+import Music from '../Music/Music';
+import Setting from '../Settings/Setting';
 
 class App extends Component {
 
@@ -34,6 +37,9 @@ class App extends Component {
           <Route path='/profile/:userId?' render={ () => <ProfileContainer/> }/>
           <Route path='/users' render={ () => <UsersContainer /> } />
           <Route path='/login' render={ () => <LoginPage /> } />
+          <Route path='/news' render={ () => <News /> } />
+          <Route path='/music' render={ () => <Music /> } />
+          <Route path='/setting' render={ () => <Setting /> } />
         </div>
       </Container>
     )

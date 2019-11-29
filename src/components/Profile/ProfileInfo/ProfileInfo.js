@@ -2,6 +2,7 @@ import React from 'react'
 import Preloader from '../../common/Preloader/Preloader'
 import ProfileStatus from './ProfileStatus'
 import User from '../../../assets/images/User.jpg'
+import classes from './ProfileInfo.module.css'
 
 
 const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
@@ -18,16 +19,20 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
 
 
   return (
-    <div>
-      <img src={profile.photos.large || User} />
+    <div className={classes.profileInfoWrap}>
       <div>
-        {isOwner && <input type={'file'} onChange={onMainPhotoselected} /> }
+        <img src={profile.photos.large || User} />
+        <div>
+          {isOwner && <input type={'file'} onChange={onMainPhotoselected} /> }
+        </div>
+        
+        <ProfileStatus status={status}  
+                       updateStatus={updateStatus}/>
       </div>
-      
-      <ProfileStatus status={status}  
-                     updateStatus={updateStatus}/>
    
-      <ProfileData  profile={profile} isOwner={isOwner}/>
+      <div className={classes.data}>
+        <ProfileData  profile={profile} isOwner={isOwner}/>
+      </div>
 
     </div>
   )
@@ -40,7 +45,7 @@ const ProfileData = ({profile}) => {
           FullName: {profile.fullName}  
         </div>
         <div>
-          Looking for a job: {profile.lookingForAJob ? 'yes' : 'no'}  
+          Looking for a job: {profile.lookingForAJob ? 'no' : 'yes'}  
         </div>
         { profile.lookingForAJob && 
         <div>

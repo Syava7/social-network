@@ -1,0 +1,11 @@
+.profileInfoWrap {
+  display: flex;
+  
+}
+
+.status {
+  margin-top: 10px;
+}
+.data {
+  padding-left: 10px;
+}

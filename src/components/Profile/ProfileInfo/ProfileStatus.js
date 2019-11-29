@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Input from '@material-ui/core/Input'
+import classes from './ProfileInfo.module.css'
 
 const ProfileStatus = (props) => {
 
@@ -25,7 +26,7 @@ const ProfileStatus = (props) => {
 
 
   return (
-      <div>
+      <div className={classes.status}>
         {!editMode 
           ? <div>
               Status: <span onDoubleClick={ activateEditMode }>{ props.status || 'No status'}</span>

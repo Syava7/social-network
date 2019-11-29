@@ -32,18 +32,24 @@ const Navbar = () => {
               Users
             </MenuItem>
           </NavLink>
+          <NavLink className={classes.link} to='/news'>
             <MenuItem className={classes.item}>
               <AnnouncementOutlinedIcon className={classes.icon} />
               News
             </MenuItem>
-          <MenuItem className={classes.item}>
-            <LibraryMusicOutlinedIcon className={classes.icon} />
-            Music
-          </MenuItem>
-          <MenuItem className={classes.item}>
-            <SettingsOutlinedIcon className={classes.icon} />
-            Setting
-          </MenuItem>
+          </NavLink>
+          <NavLink className={classes.link} to='/music'>
+            <MenuItem className={classes.item}>
+              <LibraryMusicOutlinedIcon className={classes.icon} />
+              Music
+            </MenuItem>
+          </NavLink>
+          <NavLink className={classes.link} to='/setting'>
+            <MenuItem className={classes.item}>
+              <SettingsOutlinedIcon className={classes.icon} />
+              Setting
+            </MenuItem>
+          </NavLink>
       </MenuList>
     </nav>
   )

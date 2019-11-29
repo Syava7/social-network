@@ -32,3 +32,26 @@
   text-decoration: none;
   color: black;
 }
+
+.logButton {
+  color: #fff; 
+  text-decoration: none; 
+  user-select: none; 
+  background: rgb(63, 74, 173); 
+  padding: 5px;
+  outline: none;
+  border-radius: 5px;
+  border-color: transparent;
+  transition: 0.25s; 
+}
+
+.logButton:hover {
+  background: rgb(66, 22, 148);
+}
+
+.logButton:active {
+  background: rgb(152,15,0);
+}
+
+
+

@@ -14,7 +14,7 @@ const Header = (props) => {
       </div>
       <div>
         { props.isAuth 
-          ? <div>{props.login} - <button onClick={props.logout}>Log out</button></div> 
+          ? <div>{props.login} - <button className={classes.logButton} onClick={props.logout}>Log out</button></div> 
          
           : <div className={classes.login}>
               <ExitToAppIcon />

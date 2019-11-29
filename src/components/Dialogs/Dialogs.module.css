@@ -1,8 +1,23 @@
 .dialogsWrap {
   display: grid;
   grid-template-columns: 3fr 9fr;
+  padding-bottom: 10px;
 }
 
 .button {
-  margin-top: 15px;
+  color: #fff;
+  margin-top: 10px;
+  text-decoration: none; 
+  user-select: none; 
+  background: rgb(63, 74, 173); 
+  padding: 5px 15px;
+  outline: none;
+  border-radius: 5px;
+  border-color: transparent;
+  transition: 0.5s;
+}
+
+.button:hover {
+    cursor: pointer;
+    background: rgb(5, 23, 190);
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { Textarea } from '../common/FormsControls/FormsControls'
 import { required, maxLengthCreator } from '../../utils/validators/validators'
+import classes from './Dialogs.module.css'
 
 const maxLength50 = maxLengthCreator(50)
 
@@ -15,7 +16,7 @@ const DialogsForm = (props) => {
                validate={[required, maxLength50]}/>
       </div>
       <div>
-        <button>
+        <button className={classes.button}>
           Add message
         </button>
       </div>

@@ -2,6 +2,7 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { required, maxLengthCreator } from '../../../utils/validators/validators'
 import { Textarea }  from '../../common/FormsControls/FormsControls'
+import classes from './MyPosts.module.css'
 
 const maxLength10 = maxLengthCreator(10)
 
@@ -15,7 +16,7 @@ const MyPostsForm = (props) => {
                validate={[required, maxLength10]} />
       </div>
       <div>
-        <button>
+        <button className={classes.button}>
           Add post
         </button>
       </div>

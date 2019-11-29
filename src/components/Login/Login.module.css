@@ -1,0 +1,19 @@
+.inputWrap {
+  margin-bottom: 10px; 
+}
+
+.button {
+  color: #fff; 
+  text-decoration: none; 
+  user-select: none; 
+  background: rgb(63, 74, 173); 
+  padding: 5px 15px;
+  outline: none;
+  border-radius: 5px;
+  border-color: transparent;
+  transition: 0.5s;
+}
+.button:hover {
+  cursor: pointer;
+  background: rgb(5, 23, 190);
+}
