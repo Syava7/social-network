@@ -32,7 +32,7 @@ const Paginator = ({totalUsersCount, pageSize, currentPage, onPageChanged, porti
             pages
             .filter(page => page >= leftPortionPageNumber && page <= rightPortionPageNumber)
             .map(page => {
-              return <Button className={currentPage === page && classes.selectedPage}
+              return <Button key={page} className={currentPage === page && classes.selectedPage}
                               onClick={ (e) => {
                               onPageChanged(page)
                               }}>{page}
