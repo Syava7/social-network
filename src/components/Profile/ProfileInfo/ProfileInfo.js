@@ -21,7 +21,7 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
   return (
     <div className={classes.profileInfoWrap}>
       <div>
-        <img src={profile.photos.large || User} />
+        <img alt='' src={profile.photos.large || User} />
         <div>
           {isOwner && <input type={'file'} onChange={onMainPhotoselected} /> }
         </div>

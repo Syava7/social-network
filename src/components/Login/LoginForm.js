@@ -29,7 +29,7 @@ const LoginForm = ({handleSubmit, error, captchaUrl}) => {
       </div>
 
       <div>
-        { captchaUrl && <img src={captchaUrl} />}
+        { captchaUrl && <img alt='' src={captchaUrl} />}
       </div>
       <div>
          {captchaUrl && <div>

@@ -1,6 +1,10 @@
 .photo {
   width: 100px;
   border-radius: 10px;
+  margin-top: 10px;
 }
 
-
+.btnFolow {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
