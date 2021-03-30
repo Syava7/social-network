@@ -1,6 +1,6 @@
 .appWrapper {
   font-family: 'Roboto';
-  display: grid;
+  display: grid !important;
   grid-template-rows: 1fr;
   grid-template-columns: 2fr 10fr;
   grid-template-areas:
