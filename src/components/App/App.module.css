@@ -12,7 +12,7 @@
 .appWrapperContent {
   background-color: rgb(221, 242, 255);
   grid-area: c;
-  padding: 16px;
+  padding: 15px;
   min-height: 810px;
 }
 
