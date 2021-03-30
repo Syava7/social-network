@@ -1,5 +1,5 @@
 .appWrapper {
-  font-family: 'Roboto';
+  font-family: 'Roboto', serif;
   display: grid !important;
   grid-template-rows: 1fr;
   grid-template-columns: 2fr 10fr;
