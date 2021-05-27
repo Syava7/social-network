@@ -20,7 +20,7 @@ let initialState = {
   ]
 }
 
-const dialogsReducer = (state = initialState, action) => {
+const dialogsReducer = (state = initialState, action: any) => {
   switch (action.type) {
 
     case SEND_MESSAGE:
@@ -34,7 +34,7 @@ const dialogsReducer = (state = initialState, action) => {
     }
 }
 
-export const sendMessage = (newMessageText) => ({type: SEND_MESSAGE, newMessageText})
+export const sendMessage = (newMessageText: string) => ({type: SEND_MESSAGE, newMessageText})
 
 
 export default dialogsReducer
