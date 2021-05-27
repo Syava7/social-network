@@ -1,15 +1,15 @@
 const SEND_MESSAGE = 'SEND_MESSAGE'
 
-
+type initialStateType = typeof initialState
 
 let initialState = {
   dialogs: [
-    {id: 1, name: 'Vasya'},
-    {id: 2, name: 'Kolya'},
-    {id: 3, name: 'Petya'},
+    {id: 1, name: 'Nikita'},
+    {id: 2, name: 'Fill'},
+    {id: 3, name: 'Alex'},
     {id: 4, name: 'Igor'},
-    {id: 5, name: 'Zyoma)'},
-    {id: 6, name: 'Vadim'}
+    {id: 5, name: 'Bob'},
+    {id: 6, name: 'Rony'}
   ],
   messages: [
     {id: 1, message: 'Hello'},
