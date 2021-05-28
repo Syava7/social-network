@@ -35,7 +35,7 @@ class App extends Component {
         <div className={classes.appWrapperContent}>
           <Route path='/dialogs' render={ () => <DialogsContainer /> } />
           <Route path='/profile/:userId?' render={ () => <ProfileContainer/> }/>
-          <Route path='/users' render={ () => <UsersContainer /> } />
+          <Route path='/users' render={ () => <UsersContainer pageTitle={'Samurai'} /> } />
           <Route path='/login' render={ () => <LoginPage /> } />
           <Route path='/news' render={ () => <News /> } />
           <Route path='/music' render={ () => <Music /> } />

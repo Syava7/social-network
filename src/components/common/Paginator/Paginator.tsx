@@ -3,16 +3,26 @@ import Button from '@material-ui/core/Button'
 import classes from './Paginator.module.css'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
 
+type PaginatorPropsType = {
+  totalUsersCount: number
+  pageSize: number
+  currentPage: number
+  onPageChanged: (pageNumber: number) => void
+  portionSize?: number
+}
 
 
 
-
-const Paginator = ({totalUsersCount, pageSize, currentPage, onPageChanged, portionSize = 10}) => {
+const Paginator: React.FC<PaginatorPropsType> = ({totalUsersCount,
+                                               pageSize,
+                                               currentPage,
+                                               onPageChanged,
+                                               portionSize = 10}) => {
 
   let pagesCount = Math.ceil(totalUsersCount / pageSize)
   
 
-  let pages = []
+  let pages: Array<number> = []
   for (let i = 1; i < pagesCount; i++) {
     pages.push(i)
   }
@@ -32,12 +42,12 @@ const Paginator = ({totalUsersCount, pageSize, currentPage, onPageChanged, porti
             pages
             .filter(page => page >= leftPortionPageNumber && page <= rightPortionPageNumber)
             .map(page => {
-              return <Button key={page} className={currentPage === page && classes.selectedPage}
-                              onClick={ (e) => {
-                              onPageChanged(page)
-                              }}>{page}
-                      </Button>
-              
+              return (
+                <Button
+                  className={currentPage === page ? classes.selectedPage : ''}
+                  key={page}
+                  onClick={ (e) => {onPageChanged(page)}}>{page}</Button>
+                )
             })
           }
           {portionCount > portionNumber &&
