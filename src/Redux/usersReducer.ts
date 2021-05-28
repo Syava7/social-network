@@ -1,4 +1,5 @@
 import {usersAPI} from '../api/api'
+import {PhotosType} from './profileReducer';
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET_USERS'
@@ -7,16 +8,26 @@ const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
 const TOOGLE_IS_FETCHING = 'TOOGLE_IS_FETCHING'
 const TOOGLE_IS_FOLLWING_PROGRESS = 'TOOGLE_IS_FOLLWING_PROGRESS'
 
+type User = {
+  id: number
+  name: string
+  followed: boolean
+  status: string
+  photos: PhotosType
+}
+
+export type initialStateType = typeof initialState
+
 const initialState = {
-  users: [],
-  pageSize: 5,
-  totalUsersCount: 0,
-  currentPage: 1,
+  users: [] as Array<User> | null,
+  pageSize: 5 as number | null,
+  totalUsersCount: 0 as number | null,
+  currentPage: 1 as number | null,
   isFetching: true,
   followingInProgress: []
 }
 
-const usersReducer = (state = initialState, action) => {
+const usersReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case FOLLOW:
       return { 
