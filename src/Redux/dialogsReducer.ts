@@ -1,6 +1,6 @@
 const SEND_MESSAGE = 'SEND_MESSAGE'
 
-export type initialStateType = typeof initialState
+export type InitialStateType = typeof initialState
 
 type DialogType = {
   id: number
@@ -35,7 +35,7 @@ let initialState = {
   ] as Array<MessageType>
 }
 
-const dialogsReducer = (state = initialState, action: any): initialStateType => {
+const dialogsReducer = (state = initialState, action: any): InitialStateType => {
   switch (action.type) {
 
     case SEND_MESSAGE:

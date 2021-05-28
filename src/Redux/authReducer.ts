@@ -4,7 +4,7 @@ import { stopSubmit } from 'redux-form'
 const SET_USER_DATA = 'SET_USER_DATA'
 const GET_CAPTCHA_URL_SUCCESS = 'GET_CAPTCHA_URL_SUCCESS'
 
-export type initialStateType = typeof initialState
+export type InitialStateType = typeof initialState
 
 type SetAuthUserDataActionPayloadType = {
   userId: number | null
@@ -34,12 +34,12 @@ const initialState = {
   captchaUrl: null as string | null
 }
 
-const authReducer = (state = initialState, action: any): initialStateType => {
+const authReducer = (state = initialState, action: any): InitialStateType => {
   switch (action.type) {
     case SET_USER_DATA:
     case GET_CAPTCHA_URL_SUCCESS:
       return { 
-        ...state, 
+        ...state,
         ...action.payload    
       }
     default:

@@ -1,42 +1,13 @@
 import { usersAPI, profileAPI } from "../api/api"
+import {PhotosType, PostType, ProfileType} from '../types/types'
 
 const ADD_POST = 'ADD_POST'
 const SET_USER_PROFILE = 'SET_USER_PROFILE'
 const SET_STATUS = 'SET_STATUS'
 const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS'
 
-type PostType = {
-  id: number
-  message: string
-  likesCount: number
-}
 
-type ContactsType = {
-  github: string
-  vk: string
-  facebook: string
-  instagram: string
-  twitter: string
-  website: string
-  youtube: string
-  mainLink: string
-}
-
-export type PhotosType = {
-  small: string | null
-  large: string | null
-}
-
-type ProfileType = {
-  userId: number
-  lookingForAJob: boolean
-  lookingForAJobDescription: string
-  fullName: string
-  contacts: ContactsType
-  photos: PhotosType
-}
-
-export type initialStateType = typeof initialState
+export type InitialStateType = typeof initialState
 
 type addPostAT = {
   type: typeof ADD_POST
@@ -70,7 +41,7 @@ const initialState = {
   newPostText: ''
 }
 
-const profileReducer = (state = initialState, action: any): initialStateType => {
+const profileReducer = (state = initialState, action: any): InitialStateType => {
   switch (action.type) {
     case ADD_POST:
       return {
