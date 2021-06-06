@@ -1,11 +1,21 @@
-import React, { useState, useEffect } from 'react'
+import React, {useState, useEffect, ChangeEvent} from 'react'
 import Input from '@material-ui/core/Input'
 import classes from './ProfileInfo.module.css'
 
-const ProfileStatus = (props) => {
+type PropsType = {
+  status: string
+  updateStatus: (status: string) => void
+}
 
-  const [editMode, setEditMode] = useState(false)
-  const [status, setStatus] = useState(props.status)
+type StateType = {
+  editMode: boolean
+  status: string
+}
+
+const ProfileStatus = (props: PropsType) => {
+
+  const [editMode, setEditMode] = useState<boolean>(false)
+  const [status, setStatus] = useState<string>(props.status)
 
   useEffect( () => {
     setStatus(props.status)
@@ -20,7 +30,7 @@ const ProfileStatus = (props) => {
     props.updateStatus(status)
   }
 
-   const onStatusChange = (e) => {
+   const onStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
     setStatus(e.currentTarget.value)
   }
 
@@ -33,7 +43,8 @@ const ProfileStatus = (props) => {
             </div> 
           : <div>
             <Input  onChange={ onStatusChange } 
-                    autoFocus={ true } onBlur={ deactivateEditMode } 
+                    autoFocus={ true }
+                    onBlur={ deactivateEditMode }
                     value={ status }/>
           </div>}
     </div>
