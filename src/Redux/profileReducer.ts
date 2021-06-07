@@ -7,8 +7,6 @@ const SET_STATUS = 'SET_STATUS'
 const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS'
 
 
-export type InitialStateType = typeof initialState
-
 type addPostAT = {
   type: typeof ADD_POST
   newPostText: string
@@ -28,6 +26,8 @@ type savePhotoSuccessAT = {
   type: typeof SAVE_PHOTO_SUCCESS
   photos: PhotosType
 }
+
+export type InitialStateType = typeof initialState
 
 const initialState = {
   posts: [

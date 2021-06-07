@@ -10,8 +10,6 @@ const TOOGLE_IS_FETCHING = 'TOOGLE_IS_FETCHING'
 const TOOGLE_IS_FOLLWING_PROGRESS = 'TOOGLE_IS_FOLLWING_PROGRESS'
 
 
-export type InitialStateType = typeof initialState
-
 type followSuccessAT = {
   type: typeof FOLLOW
   userId: number
@@ -47,6 +45,8 @@ type toogleIsFollowingProgressAT = {
   isFetching: boolean
   userId: number
 }
+
+export type InitialStateType = typeof initialState
 
 const initialState = {
   users: [] as Array<UserType>,

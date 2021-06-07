@@ -7,10 +7,10 @@ type PropsType = {
   updateStatus: (status: string) => void
 }
 
-type StateType = {
-  editMode: boolean
-  status: string
-}
+// type StateType = {
+//   editMode: boolean
+//   status: string
+// }
 
 const ProfileStatus = (props: PropsType) => {
 
