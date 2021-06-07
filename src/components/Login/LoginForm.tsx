@@ -7,7 +7,7 @@ import style from './Login.module.css'
 import {LoginFormValueType} from './Login';
 
 type LoginFormOwnPropsType = {
-  captchaUrl: string
+  captchaUrl: string | null
 }
 
 const LoginForm: React.FC<InjectedFormProps<LoginFormValueType, LoginFormOwnPropsType> & LoginFormOwnPropsType> = ({handleSubmit, error, captchaUrl}) => {
