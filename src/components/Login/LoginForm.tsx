@@ -1,28 +1,33 @@
 import React from 'react'
-import { Field, reduxForm } from 'redux-form'
+import {Field, InjectedFormProps, reduxForm} from 'redux-form'
 import { Input } from '../common/FormsControls/FormsControls'
 import { required } from '../../utils/validators/validators'
 import classes from '../common/FormsControls/FormsControls.module.css'
-import classess from './Login.module.css'
+import style from './Login.module.css'
+import {LoginFormValueType} from './Login';
 
-const LoginForm = ({handleSubmit, error, captchaUrl}) => {
+type LoginFormOwnPropsType = {
+  captchaUrl: string
+}
+
+const LoginForm: React.FC<InjectedFormProps<LoginFormValueType, LoginFormOwnPropsType> & LoginFormOwnPropsType> = ({handleSubmit, error, captchaUrl}) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className={classess.inputWrap}>
+      <div className={style.inputWrap}>
         <Field component={Input} 
                name={'email'} 
                placeholder='Login'
                validate={[required]}/>
       </div>
-      <div className={classess.inputWrap}>
+      <div className={style.inputWrap}>
         <Field component={Input} 
                name={'password'} 
                placeholder='Password'
                validate={[required]}
                type='password'/>
       </div>
-      <div className={classess.inputWrap}>
+      <div className={style.inputWrap}>
         <Field component={Input} 
                name={'rememberMe'} 
                type={'checkbox'} /> Remember me
@@ -44,13 +49,13 @@ const LoginForm = ({handleSubmit, error, captchaUrl}) => {
       </div>
       }
       <div>
-        <button className={classess.button}>Login</button>
+        <button className={style.button}>Login</button>
       </div>
     </form>
   )
 }
 
-const LoginReduxForm = reduxForm({
+const LoginReduxForm = reduxForm<LoginFormValueType, LoginFormOwnPropsType>({
   form: 'login'
 })(LoginForm)
 
