@@ -10,11 +10,13 @@ type initializedSuccessAT = {
   type: typeof INITIALIZED_SUCCESS
 }
 
+type ActionType = initializedSuccessAT
+
 const initialState: InitialStateType = {
   initialized: false
 }
 
-const appReducer = (state = initialState, action: any): InitialStateType => {
+const appReducer = (state = initialState, action: ActionType): InitialStateType => {
   switch (action.type) {
 
   case INITIALIZED_SUCCESS:
