@@ -17,6 +17,8 @@ type sendMessageAT = {
   newMessageText: string
 }
 
+type ActionType = sendMessageAT
+
 let initialState = {
   dialogs: [
     {id: 1, name: 'Nikita'},
@@ -35,7 +37,7 @@ let initialState = {
   ] as Array<MessageType>
 }
 
-const dialogsReducer = (state = initialState, action: any): InitialStateType => {
+const dialogsReducer = (state = initialState, action: ActionType): InitialStateType => {
   switch (action.type) {
 
     case SEND_MESSAGE:

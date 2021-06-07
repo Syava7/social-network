@@ -12,6 +12,7 @@ type initializedSuccessAT = {
 
 type ActionType = initializedSuccessAT
 
+
 const initialState: InitialStateType = {
   initialized: false
 }
