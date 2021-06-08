@@ -1,6 +1,4 @@
-const SEND_MESSAGE = 'SEND_MESSAGE'
-
-export type InitialStateType = typeof initialState
+import {ActionsTypes} from './store';
 
 type DialogType = {
   id: number
@@ -12,12 +10,9 @@ type MessageType = {
   message: string
 }
 
-type sendMessageAT = {
-  type: typeof SEND_MESSAGE
-  newMessageText: string
-}
+type ActionType = ActionsTypes<typeof actions>
 
-type ActionType = sendMessageAT
+export type InitialStateType = typeof initialState
 
 let initialState = {
   dialogs: [
@@ -40,7 +35,7 @@ let initialState = {
 const dialogsReducer = (state = initialState, action: ActionType): InitialStateType => {
   switch (action.type) {
 
-    case SEND_MESSAGE:
+    case 'SN/DIALOGS/SEND_MESSAGE':
       let text = action.newMessageText
       return {
         ...state,
@@ -51,7 +46,9 @@ const dialogsReducer = (state = initialState, action: ActionType): InitialStateT
     }
 }
 
-export const sendMessageAC = (newMessageText: string): sendMessageAT => ({type: SEND_MESSAGE, newMessageText})
+export const actions = {
+  sendMessageAC: (newMessageText: string) => ({type: 'SN/DIALOGS/SEND_MESSAGE', newMessageText} as const)
+}
 
 
 export default dialogsReducer
