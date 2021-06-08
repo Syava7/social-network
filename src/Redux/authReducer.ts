@@ -6,7 +6,7 @@ import {securityAPI} from '../api/securityAPI';
 
 
 type ActionType = ActionsTypes<typeof actions>
-type ThunkType = BaseThunkType<ActionType>
+type ThunkType = BaseThunkType<ActionType | ReturnType<typeof stopSubmit>>
 
 export type InitialStateType = typeof initialState
 
@@ -50,7 +50,7 @@ export const getAuthUserData = (): ThunkType => async (dispatch) => {
 }
 
 
-export const login = (email: string, password: string, rememberMe: boolean, captcha: string) => async (dispatch: any) => {
+export const login = (email: string, password: string, rememberMe: boolean, captcha: string): ThunkType => async (dispatch) => {
   let data = await authAPI.login(email, password, rememberMe, captcha)
     if (data.resultCode === ResultCode.Success) {
       dispatch(getAuthUserData())
