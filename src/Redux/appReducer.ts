@@ -1,26 +1,18 @@
 import { getAuthUserData } from './authReducer'
+import {ActionsTypes} from './store';
 
-const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS'
+type ActionType = ActionsTypes<typeof actions>
 
-export type InitialStateType = {
-  initialized: boolean
-}
+export type InitialStateType = typeof initialState
 
-type initializedSuccessAT = {
-  type: typeof INITIALIZED_SUCCESS
-}
-
-type ActionType = initializedSuccessAT
-
-
-const initialState: InitialStateType = {
+const initialState = {
   initialized: false
 }
 
 const appReducer = (state = initialState, action: ActionType): InitialStateType => {
   switch (action.type) {
 
-  case INITIALIZED_SUCCESS:
+  case 'SN/APP/INITIALIZED_SUCCESS':
     return {
       ...state,
       initialized: true }
@@ -30,12 +22,14 @@ const appReducer = (state = initialState, action: ActionType): InitialStateType 
   }
 }
 
-export const initializedSuccessAC = (): initializedSuccessAT => ({type: INITIALIZED_SUCCESS})
+export const actions = {
+  initializedSuccessAC: () => ({type: 'SN/APP/INITIALIZED_SUCCESS'} as const)
+}
 
 export const initializeApp = () => (dispatch: any) => {
   let promise = dispatch(getAuthUserData())
   promise.then(() => {
-    dispatch(initializedSuccessAC())
+    dispatch(actions.initializedSuccessAC())
   })
 }
 
