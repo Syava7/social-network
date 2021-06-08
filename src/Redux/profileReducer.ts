@@ -1,7 +1,6 @@
 import {PhotosType, PostType, ProfileType} from '../types/types'
 import {ThunkAction} from 'redux-thunk';
 import {AppStateType} from './store';
-import {usersAPI} from '../api/usersAPI';
 import {profileAPI} from '../api/profileAPI';
 
 const ADD_POST = 'ADD_POST'
@@ -82,8 +81,8 @@ export const setStatusAC = (status: string): setStatusAT => ({type: SET_STATUS, 
 export const savePhotoSuccessAC = (photos: PhotosType): savePhotoSuccessAT => ({type: SAVE_PHOTO_SUCCESS, photos})
 
 export const getUserProfile = (userId: number): ThunkType => async (dispatch) => {
-  const response = await usersAPI.getProfile(userId)
-    dispatch(setUserProfileAC(response.data))
+  const data = await profileAPI.getProfile(userId)
+    dispatch(setUserProfileAC(data))
 } 
 
 export const getStatus = (userId: number): ThunkType => async (dispatch) => {

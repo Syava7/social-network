@@ -103,8 +103,8 @@ export const getUsers = (currentPage: number, pageSize: number): ThunkType => as
 
 export const follow = (userId: number): ThunkType => async (dispatch) => {
   dispatch(actions.toggleIsFollowingProgressAC(true, userId))
-  const response = await usersAPI.follow(userId)
-  if (response.data.resultCode === 0) {
+  const followData = await usersAPI.follow(userId)
+  if (followData.resultCode === 0) {
     dispatch(actions.followSuccessAC(userId))
   }
   dispatch(actions.toggleIsFollowingProgressAC(false, userId))
@@ -112,8 +112,8 @@ export const follow = (userId: number): ThunkType => async (dispatch) => {
 
 export const unfollow = (userId: number): ThunkType => async (dispatch) => {
   dispatch(actions.toggleIsFollowingProgressAC(true, userId))
-  const response = await usersAPI.unfollow(userId)
-  if (response.data.resultCode === 0) {
+  const unfollowData = await usersAPI.unfollow(userId)
+  if (unfollowData.resultCode === 0) {
     dispatch(actions.unfollowSuccessAC(userId))
   }
   dispatch(actions.toggleIsFollowingProgressAC(false, userId))

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {UserType} from '../types/types';
 
 
 export enum ResultCode {
@@ -9,6 +10,18 @@ export enum ResultCode {
 
 export enum ResultCodeForCaptcha {
   CaptchaIsRequired = 10
+}
+
+export type GetItemsType = {
+  items: Array<UserType>
+  totalCount: number
+  error: string | null
+}
+
+export type ResponseType<T = {}, RC = ResultCode> = {
+  data: T
+  resultCode: RC
+  messages: Array<string>
 }
 
 
