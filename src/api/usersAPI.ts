@@ -1,5 +1,5 @@
-import {GetItemsType, instance, ResponseType} from './api';
-import {profileAPI} from './profileAPI';
+import {GetItemsType, instance, APIResponseType} from './api';
+
 
 export const usersAPI = {
   getUsers(currentPage: number, pageSize: number) {
@@ -7,12 +7,9 @@ export const usersAPI = {
       .then(response => response.data)
   },
   follow(userId: number) {
-    return instance.post<ResponseType>(`follow/${userId}`).then(res => res.data)
+    return instance.post<APIResponseType>(`follow/${userId}`).then(res => res.data)
   },
   unfollow(userId: number) {
-    return instance.delete(`follow/${userId}`).then(res => res.data) as Promise<ResponseType>
+    return instance.delete(`follow/${userId}`).then(res => res.data) as Promise<APIResponseType>
   },
-  getProfile(userId: number) {
-    return profileAPI.getProfile(userId)
-  }
 }

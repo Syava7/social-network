@@ -86,21 +86,21 @@ export const getUserProfile = (userId: number): ThunkType => async (dispatch) =>
 } 
 
 export const getStatus = (userId: number): ThunkType => async (dispatch) => {
-  const response = await profileAPI.getStatus(userId)
-    dispatch(setStatusAC(response.data))
+  const data = await profileAPI.getStatus(userId)
+    dispatch(setStatusAC(data))
 }
 
 export const updateStatus = (status: string): ThunkType => async (dispatch) => {
-  const response = await profileAPI.updateStatus(status)
-    if (response.data.resultCode === 0) {
+  const data = await profileAPI.updateStatus(status)
+    if (data.resultCode === 0) {
       dispatch(setStatusAC(status))
     }
 }
 
 export const savePhoto = (file: any): ThunkType => async (dispatch) => {
-  const response = await profileAPI.savePhoto(file)
-    if (response.data.resultCode === 0) {
-      dispatch(savePhotoSuccessAC(response.data.data.photos))
+  const data = await profileAPI.savePhoto(file)
+    if (data.resultCode === 0) {
+      dispatch(savePhotoSuccessAC(data.data.photos))
     }
 } 
 

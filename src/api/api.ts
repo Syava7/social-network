@@ -18,7 +18,7 @@ export type GetItemsType = {
   error: string | null
 }
 
-export type ResponseType<T = {}, RC = ResultCode> = {
+export type APIResponseType<T = {}, RC = ResultCode> = {
   data: T
   resultCode: RC
   messages: Array<string>
