@@ -4,11 +4,11 @@ import MyPostsFormRedux, {AddPostFormValueTypes} from './MyPostsForm'
 import {PostType} from '../../../types/types';
 
 
-type MapPropsType = {
+export type MapPropsType = {
   posts: Array<PostType>
 }
 
-type DispatchPropsType = {
+export type DispatchPropsType = {
   addPost: (newPostText: string) => void
 }
 
