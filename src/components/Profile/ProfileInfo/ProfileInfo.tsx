@@ -5,8 +5,8 @@ import User from '../../../assets/images/User.jpg'
 import classes from './ProfileInfo.module.css'
 import {ContactsType, ProfileType} from '../../../types/types';
 
-export type PropsTypeProfile = {
-  profile: ProfileType | null
+type PropsTypeProfile = {
+  profile: ProfileType
   status: string
   updateStatus: (status: string) => void
   isOwner: boolean
