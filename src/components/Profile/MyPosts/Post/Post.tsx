@@ -2,7 +2,12 @@ import React from 'react'
 import classes from './Post.module.css'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 
-const Post = ({message, likesCount}) => {
+type PropsType = {
+  message: string
+  likesCount: number
+}
+
+const Post: React.FC<PropsType> = ({message, likesCount}) => {
   return (
     <div>
       <div className={classes.wrap}>

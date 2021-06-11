@@ -15,8 +15,14 @@ import Preloader from '../common/Preloader/Preloader';
 import News from '../News/News';
 import Music from '../Music/Music';
 import Setting from '../Settings/Setting';
+import {AppStateType} from '../../Redux/store';
 
-class App extends Component {
+type MapPropsType = ReturnType<typeof mapStateToProps>
+type DispatchPropsType = {
+  initializeApp: () => void
+}
+
+class App extends Component<MapPropsType & DispatchPropsType> {
 
   componentDidMount() {
     this.props.initializeApp()
@@ -46,7 +52,7 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: AppStateType) => ({
   initialized: state.app.initialized
 })
 
