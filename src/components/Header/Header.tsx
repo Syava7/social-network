@@ -4,7 +4,16 @@ import Link from '@material-ui/core/Link'
 import { NavLink } from 'react-router-dom'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
-const Header = (props) => {
+export type MapPropsType = {
+  isAuth: boolean
+  login: string | null
+}
+
+export type DispatchPropsType = {
+  logout: () => void
+}
+
+const Header: React.FC<MapPropsType & DispatchPropsType> = (props) => {
   return (
     <div className={classes.header}>
       <div className={classes.logoWrap}>

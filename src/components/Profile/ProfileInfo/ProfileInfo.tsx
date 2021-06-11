@@ -6,7 +6,7 @@ import classes from './ProfileInfo.module.css'
 import {ContactsType, ProfileType} from '../../../types/types';
 
 type PropsTypeProfile = {
-  profile: ProfileType
+  profile: ProfileType | null
   status: string
   updateStatus: (status: string) => void
   isOwner: boolean

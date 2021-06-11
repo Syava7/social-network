@@ -10,7 +10,7 @@ import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined'
 import PeopleAltOutlinedIcon from '@material-ui/icons/PeopleAltOutlined';
 import { NavLink } from 'react-router-dom'
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   return (
     <nav className={classes.nav}>
       <MenuList>
