@@ -15,7 +15,7 @@ const initialState = {
   totalUsersCount: 0,
   currentPage: 1,
   isFetching: true,
-  followingInProgress: [] as Array<any>, // array users id
+  followingInProgress: [] as Array<any> // array users id
 }
 
 const usersReducer = (state = initialState, action: ActionType): InitialStateType => {
