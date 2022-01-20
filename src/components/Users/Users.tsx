@@ -14,10 +14,8 @@ import {
 } from '../../Redux/usersSelectors';
 
 
-type UsersPropsType = {
-  // follow: (userId: number) => void
-  // unfollow: (userId: number) => void
-}
+type UsersPropsType = {}
+
 
 const Users: FC<UsersPropsType> = (props) => {
   const users = useSelector(getUserss)

@@ -8,7 +8,7 @@ type UserPagePropsType = {
   pageTitle: string
 }
 
-const UserPage: React.FC<UserPagePropsType> = (props) => {
+const UsersPage: React.FC<UserPagePropsType> = (props) => {
 
   const isFetching = useSelector(getIsFetching)
 
@@ -21,7 +21,7 @@ const UserPage: React.FC<UserPagePropsType> = (props) => {
   )
 }
 
-export default UserPage
+export default UsersPage
 
 
 

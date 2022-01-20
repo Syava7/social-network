@@ -4,7 +4,6 @@ import { Container } from '@material-ui/core';
 import Navbar from '../Navbar/Navbar';
 import { Route, withRouter } from 'react-router-dom'
 import DialogsContainer from '../Dialogs/DialogsContainer';
-import UsersContainer from '../Users/UsersContainer';
 import ProfileContainer from '../Profile/ProfileContainer';
 import HeaderContainer from '../Header/HeaderContainer';
 import LoginPage from '../Login/Login';
@@ -16,6 +15,7 @@ import News from '../News/News';
 import Music from '../Music/Music';
 import Setting from '../Settings/Setting';
 import {AppStateType} from '../../Redux/store';
+import UsersPage from '../Users/UsersContainer';
 
 type MapPropsType = ReturnType<typeof mapStateToProps>
 type DispatchPropsType = {
@@ -41,7 +41,7 @@ class App extends Component<MapPropsType & DispatchPropsType> {
         <div className={classes.appWrapperContent}>
           <Route path='/dialogs' render={ () => <DialogsContainer /> } />
           <Route path='/profile/:userId?' render={ () => <ProfileContainer/> }/>
-          <Route path='/users' render={ () => <UsersContainer pageTitle={'Users'} /> } />
+          <Route path='/users' render={ () => <UsersPage pageTitle={'Users'} /> } />
           <Route path='/login' render={ () => <LoginPage /> } />
           <Route path='/news' render={ () => <News /> } />
           <Route path='/music' render={ () => <Music /> } />
