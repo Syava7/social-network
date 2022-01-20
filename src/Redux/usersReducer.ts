@@ -9,6 +9,8 @@ type ThunkType = BaseThunkType<ActionType>
 
 export type InitialStateType = typeof initialState
 
+export type FilterType = typeof initialState.filter
+
 const initialState = {
   users: [] as Array<UserType>,
   pageSize: 5,
