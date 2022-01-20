@@ -1,27 +1,54 @@
-import React, {FC} from 'react'
+import React, {FC, useEffect} from 'react'
 import Paginator from '../common/Paginator/Paginator'
 import User from './User'
-import {UserType} from '../../types/types';
 import {UserSearchForm} from './UserSearchForm';
-import {FilterType} from '../../Redux/usersReducer';
+import {FilterType, getUsers} from '../../Redux/usersReducer';
+import {useDispatch, useSelector} from 'react-redux';
+import {
+  getCurrentPage,
+  getFollowingInProgress,
+  getPageSize,
+  getTotalUsersCount,
+  getUsersFilter,
+  getUserss
+} from '../../Redux/usersSelectors';
 
 
 type UsersPropsType = {
-  currentPage: number
-  totalUsersCount: number
-  pageSize: number
-  users: Array<UserType>
-  followingInProgress: Array<number>
-  follow: (userId: number) => void
-  unfollow: (userId: number) => void
-  onPageChanged: (pageNumber: number) => void
-  onFilterChanged: (filter: FilterType) => void
+  // follow: (userId: number) => void
+  // unfollow: (userId: number) => void
 }
 
-const Users: FC<UsersPropsType> = ({
-                                     currentPage, onPageChanged, onFilterChanged, totalUsersCount,
-                                     pageSize, followingInProgress, unfollow, follow, users
-                                   }) => {
+const Users: FC<UsersPropsType> = (props) => {
+  const users = useSelector(getUserss)
+  const totalUsersCount = useSelector(getTotalUsersCount)
+  const currentPage = useSelector(getCurrentPage)
+  const pageSize = useSelector(getPageSize)
+  const filter = useSelector(getUsersFilter)
+  const followingInProgress = useSelector(getFollowingInProgress)
+
+  useEffect(() => {
+    dispatch(getUsers(currentPage, pageSize, filter))
+  }, [])
+
+  const dispatch = useDispatch()
+
+  const onPageChanged = (pageNumber: number) => {
+    dispatch(getUsers(pageNumber, pageSize, filter))
+  }
+
+  const onFilterChanged = (filter: FilterType) => {
+    dispatch(getUsers(1, pageSize, filter))
+  }
+
+  const follow = (userId: number) => {
+    dispatch(follow(userId))
+  }
+
+  const unfollow = (userId: number) => {
+    dispatch(unfollow(userId))
+  }
+
   return (
     <div>
 
