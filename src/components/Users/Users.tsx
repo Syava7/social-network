@@ -2,6 +2,8 @@ import React, {FC} from 'react'
 import Paginator from '../common/Paginator/Paginator'
 import User from './User'
 import {UserType} from '../../types/types';
+import {UserSearchForm} from './UserSearchForm';
+
 
 type UsersPropsType = {
   currentPage: number
@@ -14,24 +16,32 @@ type UsersPropsType = {
   onPageChanged: (pageNumber: number) => void
 }
 
-const Users: FC<UsersPropsType> = ({currentPage, onPageChanged, totalUsersCount,
-                pageSize, followingInProgress, unfollow, follow, users }) => {
+const Users: FC<UsersPropsType> = ({
+                                     currentPage, onPageChanged, totalUsersCount,
+                                     pageSize, followingInProgress, unfollow, follow, users
+                                   }) => {
   return (
     <div>
-      <Paginator currentPage={currentPage} 
-                 onPageChanged={onPageChanged}
-                 totalUsersCount={totalUsersCount}
-                 pageSize={pageSize}/>
+
+      <UserSearchForm/>
+
+
       <div>
         {
-          users.map( user => <User user={user} 
-                                   key={user.id}
-                                   followingInProgress={followingInProgress}
-                                   unfollow={unfollow}
-                                   follow={follow}/>
+          users.map(user => <User user={user}
+                                  key={user.id}
+                                  followingInProgress={followingInProgress}
+                                  unfollow={unfollow}
+                                  follow={follow}/>
           )
         }
       </div>
+
+      <Paginator currentPage={currentPage}
+                 onPageChanged={onPageChanged}
+                 totalUsersCount={totalUsersCount}
+                 pageSize={pageSize}/>
+
     </div>
   )
 }
