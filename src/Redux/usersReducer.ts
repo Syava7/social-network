@@ -102,8 +102,9 @@ export const actions = {
 export const getUsers = (currentPage: number, pageSize: number, term: string): ThunkType => async (dispatch) => {
   dispatch(actions.toggleIsFetchingAC(true))
   dispatch(actions.setCurrentPageAC(currentPage))
+  dispatch(actions.setFilterAC(term))
 
-  const data = await usersAPI.getUsers(currentPage, pageSize)
+  const data = await usersAPI.getUsers(currentPage, pageSize, term)
   dispatch(actions.toggleIsFetchingAC(false))
   dispatch(actions.setUsersAC(data.items))
   dispatch(actions.setTotalUsersCountAC(data.totalCount))
