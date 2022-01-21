@@ -1,14 +1,10 @@
 import React from 'react'
 import LoginReduxForm from './LoginForm'
-import {connect, useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {login} from '../../Redux/authReducer'
 import {Redirect} from 'react-router-dom'
 import {AppStateType} from '../../Redux/store';
 
-
-type MapDispatchPropsType = {
-  login: (email: string, password: string, rememberMe: boolean, captcha: string) => void
-}
 
 export type LoginFormValueType = {
   email: string
@@ -17,13 +13,15 @@ export type LoginFormValueType = {
   captcha: string
 }
 
-const Login: React.FC<MapDispatchPropsType> = (props) => {
+const LoginPage: React.FC = () => {
 
   const captchaUrl = useSelector((state: AppStateType ) => state.auth.captchaUrl)
   const isAuth = useSelector((state: AppStateType ) => state.auth.isAuth)
 
+  const dispatch = useDispatch()
+
   const onSubmit = ({email, password, rememberMe, captcha}: LoginFormValueType) => {
-    props.login(email, password, rememberMe, captcha)
+    dispatch(login(email, password, rememberMe, captcha))
   }
 
   if (isAuth) {
@@ -40,4 +38,4 @@ const Login: React.FC<MapDispatchPropsType> = (props) => {
 }
 
 
-export default connect(null,{ login })(Login)
+export default LoginPage
