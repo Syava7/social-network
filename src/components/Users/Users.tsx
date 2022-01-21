@@ -13,6 +13,7 @@ import {
   getUserss
 } from '../../Redux/usersSelectors';
 import {useHistory} from 'react-router';
+import * as queryString from 'querystring';
 
 
 type UsersPropsType = {}
@@ -38,6 +39,7 @@ const Users: FC<UsersPropsType> = (props) => {
 
 
   useEffect(() => {
+
     dispatch(getUsers(currentPage, pageSize, filter))
   }, [])
 
