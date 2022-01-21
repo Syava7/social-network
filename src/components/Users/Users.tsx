@@ -32,9 +32,9 @@ const Users: FC<UsersPropsType> = (props) => {
   useEffect(() => {
     history.push({
       pathname: '/users',
-      search: `?term=${filter.term}&friend=${filter.friend}`
+      search: `?term=${filter.term}&friend=${filter.friend}&page${currentPage}`
     })
-  }, [filter])
+  }, [filter, currentPage])
 
 
   useEffect(() => {
