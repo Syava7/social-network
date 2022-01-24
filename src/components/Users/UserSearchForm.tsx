@@ -9,7 +9,7 @@ type PropsType = {
 
 type FormType = {
   term: string,
-  friend: 'true' | 'false' | 'null'
+  friend: string
 }
 
 const usersSearchFormValidate = (values: any) => {

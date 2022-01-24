@@ -16,6 +16,7 @@ import Music from '../Music/Music';
 import Setting from '../Settings/Setting';
 import {AppStateType} from '../../Redux/store';
 import UsersPage from '../Users/UsersContainer';
+import ChatPage from '../../pages/Chat/ChatPage';
 
 type MapPropsType = ReturnType<typeof mapStateToProps>
 type DispatchPropsType = {
@@ -46,6 +47,7 @@ class App extends Component<MapPropsType & DispatchPropsType> {
           <Route path='/news' render={ () => <News /> } />
           <Route path='/music' render={ () => <Music /> } />
           <Route path='/setting' render={ () => <Setting /> } />
+          <Route path='/chat' render={ () => <ChatPage /> } />
         </div>
       </Container>
     )

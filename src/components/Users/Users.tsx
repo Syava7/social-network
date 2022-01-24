@@ -28,18 +28,17 @@ const Users: FC<UsersPropsType> = (props) => {
   const followingInProgress = useSelector(getFollowingInProgress)
 
   const dispatch = useDispatch()
-  const history = useHistory()
+  // const history = useHistory()
+  //
+  // useEffect(() => {
+  //   history.push({
+  //     pathname: '/users',
+  //     search: `?term=${filter.term}&friend=${filter.friend}&page${currentPage}`
+  //   })
+  // }, [filter, currentPage])
+
 
   useEffect(() => {
-    history.push({
-      pathname: '/users',
-      search: `?term=${filter.term}&friend=${filter.friend}&page${currentPage}`
-    })
-  }, [filter, currentPage])
-
-
-  useEffect(() => {
-
     dispatch(getUsers(currentPage, pageSize, filter))
   }, [])
 
