@@ -1,15 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {Button, TextareaAutosize} from '@mui/material';
+import {ChatMessageType} from '../../api/chatApi';
 
 
 const ws = new WebSocket('wss://social-network.samuraijs.com/handlers/ChatHandler.ashx')
 
-export type ChatMessageType = {
-	message: string,
-	photo: string,
-	userId: number,
-	userName: string
-}
+
 
 const ChatPage: React.FC = () => {
 	return <div>
@@ -54,16 +50,35 @@ const Message: React.FC<{message: ChatMessageType}> = ({message}) => {
 }
 
 const AddMessageForm: React.FC = () => {
+
+	const [message, setMessage] = useState('')
+
+	const sendMessage = () => {
+
+		if(!message) {
+			return
+		}
+
+		ws.send(message)
+		setMessage('')
+	}
+
 	return <div>
 		<div>
 			<TextareaAutosize
+				onChange={(e) => setMessage(e.currentTarget.value)}
+				value={message}
 				placeholder="Empty"
-				style={{width: 200, height: 100}}
+				style={{width: 200, height: 30}}
 			/>
 		</div>
 		<div>
 			<Button color={'primary'}
-							variant={'contained'}>Send</Button>
+							variant={'contained'}
+							onClick={sendMessage}
+							>
+				Send
+			</Button>
 		</div>
 	</div>
 }

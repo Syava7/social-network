@@ -1,6 +1,7 @@
 import {Field, Form, Formik} from 'formik';
 import React from 'react';
 import {FilterType} from '../../Redux/usersReducer';
+import {Button} from '@mui/material';
 
 
 type PropsType = {
@@ -43,9 +44,12 @@ export const UserSearchForm: React.FC<PropsType> = React.memo((props) => {
             <option value="true"> Only followed</option>
             <option value="false">Only unfollowed</option>
           </Field>
-          <button type="submit" disabled={isSubmitting}>
+          <Button type="submit"
+									disabled={isSubmitting}
+									variant={'contained'}
+									color={'primary'}>
             Find
-          </button>
+          </Button>
         </Form>
       )}
     </Formik>
