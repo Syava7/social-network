@@ -1,11 +1,15 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Button, TextareaAutosize} from '@mui/material';
-import {ChatMessageType} from '../../api/chatApi';
 
 
 const ws = new WebSocket('wss://social-network.samuraijs.com/handlers/ChatHandler.ashx')
 
-
+export type ChatMessageType = {
+	message: string,
+	photo: string,
+	userId: number,
+	userName: string
+}
 
 const ChatPage: React.FC = () => {
 	return <div>
@@ -23,6 +27,7 @@ const Chat: React.FC = () => {
 const Messages: React.FC = () => {
 
 	const [messages, setMessages] = useState<ChatMessageType[]>([]);
+	const messagesAnchorRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		ws.addEventListener('message', (e) => {
@@ -31,10 +36,15 @@ const Messages: React.FC = () => {
 		})
 	}, [])
 
+	useEffect(() => {
+		messagesAnchorRef.current?.scrollIntoView({behavior: 'smooth'})
+	}, [messages])
+
 
 
 	return <div style={{height: '400px', overflowY: 'auto'}}>
 		{messages.map((m, index) => <Message key={index} message={m}/>)}
+		<div ref={messagesAnchorRef}></div>
 	</div>
 }
 
